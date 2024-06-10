@@ -42,7 +42,7 @@ class Author:
         return articles
 
     def topic_areas(self):
-        pass
+        return list(set([article.magazine.catrgory for article in self.articles()])) if self.articles() else None
 
 class Magazine:
     def __init__(self, name, category):
@@ -77,7 +77,8 @@ class Magazine:
         return [ articles.author for articles in self.articles()]
 
     def article_titles(self):
-        pass
+        titles=[article.title for article in self.articles()]
+        return titles if titles else None
 
     def contributing_authors(self):
         pass
